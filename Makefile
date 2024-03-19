@@ -6,7 +6,7 @@ EXECUTABLE = octracer
 all: clean build
 
 build:
-	$(CXX) $(CXXFLAGS) src/*.cpp -o bin/$(EXECUTABLE)
+	$(CXX) $(CXXFLAGS) src/*.cpp src/math/*.cpp -o bin/$(EXECUTABLE)
 
 clean:
 	rm -rf bin/*

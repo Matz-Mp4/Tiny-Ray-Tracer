@@ -2,16 +2,12 @@
 
 #include <cmath>
 
-//=======================(Constructor)==========================\\
-
 Vector3D::Vector3D(double x, double y, double z, double w = 0.0)
     : x(x), y(y), z(z), w(w) {}
 
 Vector3D::Vector3D(double t)
     : x(t), y(t), z(t), w(t) {}
     
-
-//=======================(Overload)==========================\\
 
 Vector3D& Vector3D::operator+(const Vector3D& rhs) {
     x += rhs.x;
@@ -67,14 +63,9 @@ bool Vector3D::operator==(const Vector3D& other) const{
 }
 
 
-//=======================(Functions)==========================\\
-
 double Vector3D::length() const {
     return std::sqrt(x * x + y * y + z * z + w * w);
 }
-
-
-//=======================(Math Functions)==========================\\
 
 double dot(const Vector3D& u, const Vector3D& v) {
     return (u.x * v.x) + (u.y * v.y) + (u.z * v.z) + (u.w * v.w);

@@ -13,13 +13,6 @@ Vector3D::Vector3D(double t)
 
 //=======================(Overload)==========================\\
 
-bool Vector3D::operator==(const Vector3D& other) {
-    return (std::abs(x - other.x) < EPSILON &&
-            std::abs(y - other.y) < EPSILON &&
-            std::abs(z - other.z) < EPSILON &&
-            std::abs(w - other.w) < EPSILON);
-}
-
 Vector3D& Vector3D::operator+(const Vector3D& rhs) {
     x += rhs.x;
     y += rhs.y;
@@ -64,6 +57,13 @@ Vector3D& Vector3D::operator/(double rhs) {
 
 Vector3D operator*(double t, const Vector3D& v) {
     return Vector3D(t * v.x, t * v.y, t * v.z, t * v.w);
+}
+
+bool Vector3D::operator==(const Vector3D& other) {
+    return (std::abs(x - other.x) < EPSILON &&
+            std::abs(y - other.y) < EPSILON &&
+            std::abs(z - other.z) < EPSILON &&
+            std::abs(w - other.w) < EPSILON);
 }
 
 

@@ -59,7 +59,7 @@ Vector3D operator*(double t, const Vector3D& v) {
     return Vector3D(t * v.x, t * v.y, t * v.z, t * v.w);
 }
 
-bool Vector3D::operator==(const Vector3D& other) {
+bool Vector3D::operator==(const Vector3D& other) const{
     return (std::abs(x - other.x) < EPSILON &&
             std::abs(y - other.y) < EPSILON &&
             std::abs(z - other.z) < EPSILON &&

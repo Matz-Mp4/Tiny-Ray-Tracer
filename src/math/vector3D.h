@@ -23,7 +23,7 @@ public:
     Vector3D& operator* (const Vector3D& rhs);
     Vector3D& operator* (double rhs);
     Vector3D& operator/ (double rhs);
-    bool      operator==(const Vector3D& other);
+    bool      operator==(const Vector3D& other) const;
     
 
     double length() const;    

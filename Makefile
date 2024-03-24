@@ -17,3 +17,4 @@ clean:
 
 test:
 	$(CXX) $(CXXFLAGS) tests/*.cpp src/math/*.cpp -Isrc/math -o bin/tests -fpermissive
+	./bin/tests

@@ -1,6 +1,6 @@
 class Color {
 public:
-    double r, g,b;
+    double r,g,b;
     
     Color() = default;
     Color(const double c);

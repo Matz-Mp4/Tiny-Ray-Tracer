@@ -12,7 +12,7 @@ std::ostream& operator<<(std::ostream& stream, const Matrix4& mtx){
 }
  
 
-Matrix4::Matrix4(Vector4 arg1, Vector4 arg2, Vector4 arg3,Vector4 arg4) {
+Matrix4::Matrix4(const Vector4& arg1, const Vector4& arg2, const Vector4& arg3, const Vector4& arg4) {
     this->data[0] = arg1;
     this->data[1] = arg2;
     this->data[2] = arg3;
@@ -52,7 +52,6 @@ Matrix4& Matrix4::operator*(const Matrix4& arg) {
 }
 
 bool Matrix4::operator==(const Matrix4& arg) const {
-
     return this->data[0] == arg.data[0] && 
            this->data[1] == arg.data[1] && 
            this->data[2] == arg.data[2] &&

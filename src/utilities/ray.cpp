@@ -1,5 +1,4 @@
 #include "ray.h"
-
 Ray::Ray(const Point4& origin, const Vector4& dir):
     origin(origin),
     dir(dir) {};

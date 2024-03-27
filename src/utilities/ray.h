@@ -9,7 +9,6 @@ public:
 
     Ray() = default;
     Ray(const Point4& origin, const Vector4& dir);
-    Ray(const Ray& ray);
 
     bool operator==(const Ray& rhs);
 };

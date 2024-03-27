@@ -16,8 +16,6 @@ public:
     Vector4(double t);
     Vector4(double x, double y, double z, double w = 0.0);
     
-    ~Vector4() = default;
-
     /* Vector4& operator=(const Vector4& ); */
     Vector4& operator+ (const Vector4& );
     Vector4& operator- (const Vector4& );
@@ -32,8 +30,10 @@ public:
     double length() const;    
 };
 
+
 Vector4 operator*(double lhs, const Vector4& rhs);
 
 double   dot  (const Vector4& u, const Vector4& v);
 Vector4 cross(const Vector4& u, const Vector4& v);
 
+using Point4 = Vector4;

@@ -1,3 +1,5 @@
+#pragma once
+
 class Color {
 public:
     double r,g,b;

@@ -15,3 +15,18 @@ public:
     bool   operator==(const Color &rhs);
 
 };
+
+//static const: "... will retain its value 
+//               till the execution of the 
+//               program and also, it will 
+//               not accept any change in its value."
+static const Color WHITE   = Color(1.0, 1.0, 1.0);
+static const Color BLACK   = Color(0.0, 0.0, 0.0);
+static const Color RED     = Color(1.0, 0.0, 0.0);
+static const Color BLUE    = Color(0.0, 0.0, 1.0);
+static const Color GREEN   = Color(0.0, 1.0, 0.0);
+static const Color CYAN    = Color(0.0, 1.0, 1.0);
+static const Color MAGENTA = Color(1.0, 0.0, 1.0);
+static const Color YELLOW  = Color(1.0, 1.0, 0.0);
+
+

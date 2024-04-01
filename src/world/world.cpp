@@ -1,4 +1,5 @@
 #include "world.h"
+#include "../tracers/single_sphere.h"
 
 void World::build() {
     vp.length = 200;
@@ -21,7 +22,7 @@ void World::render_scene() const {
     open_window(vp.length, vp.height);
     ray.direction = Vector4(0.0,0.0,-1.0);
 
-    for(int i = 0; r < vp.height; i++) {
+    for(int i = 0; i < vp.height; i++) {
         for(int j = 0; j < vp.length; j++) {
             x = vp.pixel_size * (j - 0.5 * (vp.length - 1.0));
             y = vp.pixel_size * (i - 0.5 * (vp.height - 1.0));

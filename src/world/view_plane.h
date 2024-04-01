@@ -1,3 +1,5 @@
+#pragma once
+
 class ViewPlane {
 public:
     int length;  

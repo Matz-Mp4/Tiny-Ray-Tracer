@@ -12,7 +12,6 @@ public:
     Sphere sphere;
     Tracer* tracer_ptr;
 
-    World() = default;
 
     void build();
     void render_scene() const;

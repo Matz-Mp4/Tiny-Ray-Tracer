@@ -1,8 +1,8 @@
 #pragma once
 
 #include "../utilities/ray.h"
-#include "../utilities/color.h"
 #include "../utilities/shade_rec.h"
+/* #include "../utilities/color.h" */
 
 class GeometricObject {
 public: 

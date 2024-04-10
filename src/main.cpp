@@ -1,8 +1,12 @@
 #include "math/vector4.h"
 
+/* #include "world/world.h" */
 #include <iostream>
 
 int main() {
-    std::cout << "Hello, world!";
+    /* World world; */
+    /* world.build(); */
+    /* world.render_scene(); */
+
     return 0;
 }

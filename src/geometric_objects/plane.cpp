@@ -8,6 +8,11 @@ Plane::Plane(const Point4& point, const Vector4& normal):
 {}
 
 
+Color Plane::get_color() const {
+    return CYAN;
+}
+
+
 bool Plane::hit(const Ray& ray, double& tmin, ShadeRec& shade_rec) const {
     double t = (point - ray.origin) * normal /  ray.direction  * normal ;
 

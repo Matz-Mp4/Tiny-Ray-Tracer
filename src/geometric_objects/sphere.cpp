@@ -1,8 +1,14 @@
 #include "sphere.h"
 
+const double Sphere::k_epsilon = 0.001;
+
 Sphere::Sphere(const Point4 &center, const double radius)
     : center(center), radius(radius) {}
 
+
+Color Sphere::get_color() const {
+    return RED;
+}
 bool Sphere::hit(const Ray &ray, double &tmin, ShadeRec &shade_rec) const {
     double t;
     Vector4 temp = ray.origin - center;

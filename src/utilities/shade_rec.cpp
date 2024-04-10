@@ -1,4 +1,5 @@
 #include "shade_rec.h"
+#include "../world/world.h"
 
 ShadeRec::ShadeRec(World& world):
     hit_object(false),

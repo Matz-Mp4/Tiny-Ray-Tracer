@@ -1,5 +1,6 @@
 CXX = g++
 CXXFLAGS = -std=c++20 #-Wall -Werror -Wextra -Wpedantic 
+LIBS = -lSDL2
 
 BIN_PATH = bin
 SRC_PATH = src/*.cpp
@@ -10,8 +11,7 @@ EXECUTABLE = render_man
 all: clean build
 
 build:
-	$(CXX) $(CXXFLAGS) $(SRC_PATH) $(INCLUDE_PATH) -o bin/$(EXECUTABLE) 
-	./bin/render_man
+	$(CXX) $(CXXFLAGS) $(SRC_PATH) $(INCLUDE_PATH) $(LIBS) -o bin/$(EXECUTABLE) 
 
 clean:
 	rm -rf bin/*
@@ -19,3 +19,6 @@ clean:
 test:
 	$(CXX) $(CXXFLAGS) tests/*.cpp src/math/*.cpp -Isrc/math -o bin/tests 
 	./bin/tests
+
+run:
+	./bin/render_man

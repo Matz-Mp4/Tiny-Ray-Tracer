@@ -1,12 +1,10 @@
-/* #include "math/vector4.h" */
+#include "../include/world.h"
 
-/* #include "world/world.h" */
-#include <iostream>
 
-int main() {
-    /* World world; */
-    /* world.build(); */
-    /* world.render_scene(); */
 
-    return 0;
+int main(){
+    World w;
+    w.build();
+    w.render_scene();
+    return(0);
 }

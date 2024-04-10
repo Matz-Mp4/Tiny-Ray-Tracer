@@ -1,4 +1,4 @@
-#include "sphere.h"
+#include "../../include/sphere.h"
 
 const double Sphere::k_epsilon = 0.001;
 

@@ -1,4 +1,4 @@
-#include "color.h"
+#include "../../include/color.h"
 
 Color::Color(const double c): 
     r(c),g(c),b(c) {} 

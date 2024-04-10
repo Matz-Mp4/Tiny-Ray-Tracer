@@ -1,9 +1,8 @@
-#include "world.h"
-#include "../tracers/single_sphere.h"
-#include "../tracers/MultipleObjects.h"
-#include "../utilities/shade_rec.h"
-#include "../geometric_objects/sphere.h"
-#include "../geometric_objects/plane.h"
+#include "../../include/world.h"
+#include "../../include/MultipleObjects.h"
+#include "../../include/shade_rec.h"
+#include "../../include/sphere.h"
+#include "../../include/plane.h"
 
 const double kHugeValue	= 1.0E10;
 

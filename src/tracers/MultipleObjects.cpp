@@ -1,6 +1,6 @@
-#include "MultipleObjects.h"
-#include "../utilities/shade_rec.h"
-#include "../world/world.h"
+#include "../../include/MultipleObjects.h"
+#include "../../include/shade_rec.h"
+#include "../../include/world.h"
 
 MultipleObjects::MultipleObjects(): 
     Tracer() {};

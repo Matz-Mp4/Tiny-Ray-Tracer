@@ -1,6 +1,6 @@
-#include "single_sphere.h"
-#include "../utilities/shade_rec.h"
-#include "../world/world.h"
+#include "../../include/single_sphere.h"
+#include "../../include/shade_rec.h"
+#include "../../include/world.h"
 
 SingleSphere::SingleSphere(): 
     Tracer() {};

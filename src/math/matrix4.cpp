@@ -1,5 +1,5 @@
-#include "matrix4.h"
-#include "vector4.h"
+#include "../../include/matrix4.h"
+#include "../../include/vector4.h"
 
 std::ostream& operator<<(std::ostream& stream, const Matrix4& mtx){
      stream << '[';

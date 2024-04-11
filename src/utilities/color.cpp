@@ -1,4 +1,5 @@
 #include "../../include/color.h"
+#include <cmath>
 
 Color::Color(const double c): 
     r(c),g(c),b(c) {} 
@@ -40,5 +41,10 @@ Color& Color::operator*(const double d) {
     this->g*=d;
     this->b*=d;
     return *this;
+}
+
+
+Color Color::powc(double p) const {
+    return Color(pow(r, p), pow(g, p), pow(b, p));
 }
 

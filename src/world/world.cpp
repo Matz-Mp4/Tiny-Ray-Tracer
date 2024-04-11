@@ -15,7 +15,7 @@ World::World()
 World::~World() {		
 	if(tracer_ptr) {
 		delete tracer_ptr;
-		tracer_ptr = NULL;
+		tracer_ptr = nullptr;
 	}	
 	if(window){
 		window->close();
@@ -26,23 +26,25 @@ World::~World() {
 }
 
 void World::build() {
-    vp.length = 800;
-    vp.height = 800;
+    vp.length = 400;
+    vp.height = 400;
     vp.pixel_size = 1.0;
     vp.gamma = 1.0;
 
     bg = BLACK;
     tracer_ptr = new MultipleObjects(this);
-    Sphere* sphere = new Sphere();
-    sphere->center = 0.0;
-    sphere->radius = 85.0;
-    add_object(sphere);
+    Sphere* sphere1 = new Sphere(Point4(0.0, -25.0, 0.0), 80.0);
+    sphere1->color = RED;
+    /* add_object(sphere); */
 
-    sphere = new Sphere(Point4(0.0,30.0,60.0), 60);
-    add_object(sphere);
+    Sphere* sphere2 = new Sphere(Point4(0.0,30.0,60.0), 60);
+    sphere2->color = YELLOW;
 
-    Plane* plane = new Plane();
+    Plane* plane = new Plane(Point4(0.0, 0.0,0.0), Vector4(0.0, 1.0,1.0));
+    plane->color = GREEN;
     add_object(plane);
+    add_object(sphere2);
+    add_object(sphere1);
 }
 
 void World::render_scene() {
@@ -70,9 +72,14 @@ void World::display_pixel(const int row, const int column, const Color& pixel_co
    int x = column;
    int y = vp.height - row - 1;
 
-   window->set_pixel(x, y, (int)(pixel_color.r * 255),
-                          (int)(pixel_color.g * 255),
-                          (int)(pixel_color.b * 255));
+   Color color = pixel_color;
+   if(vp.gamma != 1.0) 
+       color = pixel_color.powc(vp.inv_gamma);
+       
+
+   window->set_pixel(x, y, (int)(color.r * 255),
+                          (int)(color.g * 255),
+                          (int)(color.b * 255));
 }
 
 void World::init_window(const int length, const int hight) {
@@ -95,11 +102,13 @@ ShadeRec World::hit_bare_bones_objects(const Ray& ray) {
         if(objects[i]->hit(ray, t, shade_rec) && (t < tmin) ){
             shade_rec.hit_object = true;
             tmin = t;
-            shade_rec.color = objects[i]->get_color();
+            shade_rec.color = objects[i]->color;
         }
     }
 
     return shade_rec;
 }
+
+
 
 

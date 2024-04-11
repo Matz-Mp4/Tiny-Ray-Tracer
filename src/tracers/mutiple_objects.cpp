@@ -1,4 +1,4 @@
-#include "../../include/MultipleObjects.h"
+#include "../../include/multiple_objects.h"
 #include "../../include/shade_rec.h"
 #include "../../include/world.h"
 

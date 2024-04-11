@@ -7,6 +7,7 @@ Plane::Plane(const Point4& point, const Vector4& normal):
     normal(normal)
 {}
 
+Plane::~Plane(void)	{}
 
 Color Plane::get_color() const {
     return CYAN;

@@ -6,6 +6,8 @@ Sphere::Sphere(const Point4 &center, const double radius)
     : center(center), radius(radius) {}
 
 
+Sphere::~Sphere() {};
+
 Color Sphere::get_color() const {
     return RED;
 }

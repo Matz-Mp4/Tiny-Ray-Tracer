@@ -18,8 +18,12 @@ void Window::init(){
 }
 
 void Window::set_pixel(unsigned int x,unsigned int y,int r, int g, int b){
-	SDL_SetRenderDrawColor(renderer, r, g, b, 255);
+	SDL_SetRenderDrawColor(renderer, r, g, b, 0);
 	SDL_RenderDrawPoint(renderer, x, y);
+	/* SDL_RenderPresent(renderer); */
+}
+
+void Window::show_window() const{
 	SDL_RenderPresent(renderer);
 }
 

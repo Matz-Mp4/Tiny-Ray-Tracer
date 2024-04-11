@@ -15,5 +15,5 @@ Color MultipleObjects::trace_ray(const Ray& ray) const {
     if(shade_rec.hit_object)
         return shade_rec.color;
     else
-        return BLACK;
+        return world_ptr->bg;
 }

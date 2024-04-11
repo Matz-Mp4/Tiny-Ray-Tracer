@@ -17,5 +17,6 @@ public:
     void init();
     void set_pixel(unsigned int x, unsigned int y, int r, int g, int b);
     bool should_close();
+    void show_window() const;
     void close();
 };

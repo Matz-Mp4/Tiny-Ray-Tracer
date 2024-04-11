@@ -19,7 +19,7 @@ bool Plane::hit(const Ray& ray, double& tmin, ShadeRec& shade_rec) const {
     if (t > k_epsilon) {
         tmin = t;
         shade_rec.normal = normal;
-        shade_rec.local_hit_point = ray.origin + (t * ray.direction);
+        shade_rec.local_hit_point = ray.origin + t * ray.direction;
 
         return true;
     }

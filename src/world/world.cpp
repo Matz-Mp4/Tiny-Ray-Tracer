@@ -22,6 +22,10 @@ World::~World() {
 		delete window;
 		window = nullptr;
 	}
+
+    for(int i = 0 ; i < objects.size(); i++) {
+        delete objects[i];
+    }
 	/* delete_objects();	 */
 }
 
@@ -37,14 +41,14 @@ void World::build() {
     sphere1->color = RED;
     /* add_object(sphere); */
 
-    Sphere* sphere2 = new Sphere(Point4(0.0,30.0,60.0), 60);
+    Sphere* sphere2 = new Sphere(Point4(0.0,30.0,0.0), 60);
     sphere2->color = YELLOW;
 
     Plane* plane = new Plane(Point4(0.0, 0.0,0.0), Vector4(0.0, 1.0,1.0));
     plane->color = GREEN;
-    add_object(plane);
-    add_object(sphere2);
+    /* add_object(plane); */
     add_object(sphere1);
+    add_object(sphere2);
 }
 
 void World::render_scene() {
@@ -54,6 +58,7 @@ void World::render_scene() {
     
     init_window(vp.length, vp.height);
     ray.direction = Vector4(0.0,0.0,-1.0);
+    bool quit = false; 
 
     for(int i = 0; i < vp.height; i++) {
         for(int j = 0; j < vp.length; j++) {
@@ -62,8 +67,16 @@ void World::render_scene() {
             ray.origin = Point4(x, y, zw);
             pixel_color = tracer_ptr->trace_ray(ray);
             display_pixel(i, j, pixel_color);
+            if(window->should_close()){
+				quit = true;
+			}
         }
+        window->show_window();
     }
+
+    while(!quit && !window->should_close()){ 
+		// wait 
+	}
 
 }
 

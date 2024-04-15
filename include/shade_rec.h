@@ -14,5 +14,4 @@ public:
     Color color;
                             
     ShadeRec(World& world);
-
 };

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+
 #include "view_plane.h" 
 #include "color.h" 
 #include "sphere.h" 
@@ -19,12 +20,10 @@ public:
     World();
     ~World();
 
-
     void build();
-    void render_scene() ;
+    void render_scene();
     void init_window(const int length, const int hight);
     void display_pixel(const int row, const int column, const Color& pixel_color);
     void add_object(GeometricObject* object_ptr);
-    ShadeRec hit_bare_bones_objects(const Ray& ray) ;
-
+    ShadeRec hit_bare_bones_objects(const Ray& ray);
 };

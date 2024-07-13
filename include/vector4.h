@@ -7,8 +7,8 @@ constexpr double epsilon = 10e-6;
 
 class Vector4 {
 public:
-    double x;
     double y;
+    double x;
     double z;
     double w;
 

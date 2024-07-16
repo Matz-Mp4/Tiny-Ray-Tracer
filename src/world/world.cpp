@@ -46,7 +46,7 @@ void World::build() {
     Sphere* sphere2 = new Sphere(Point4(0.0,30.0,0.0), 60);
     sphere2->color = YELLOW;
 
-    Plane* plane = new Plane(Point4(0.0, 0.0,0.0), Vector4(0.0, 1.0,1.0));
+    Plane* plane = new Plane(Point4(0.0, 0.0,0.0), Vec4(0.0, 1.0,1.0));
     plane->color = GREEN;
     /* add_object(plane); */
     add_object(sphere1);
@@ -59,7 +59,7 @@ void World::render_scene() {
     double x, y, zw = 100.0; //hard wired in (temporary)
     
     init_window(vp.length, vp.height);
-    ray.direction = Vector4(0.0,0.0,-1.0);
+    ray.direction = Vec4(0.0,0.0,-1.0);
     bool quit = false; 
 
     for (int i = 0; i < vp.height; i++) {

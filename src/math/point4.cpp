@@ -16,19 +16,19 @@ Point4::Point4(double x, double y, double z, double w) {
   this->data[3] = w;
 }
 
-Vector4 Point4::operator-(const Point4& p) const {
-  return Vector4(this->data[0] - p.data[0], this->data[1] - p.data[1],
+Vec4 Point4::operator-(const Point4& p) const {
+  return Vec4(this->data[0] - p.data[0], this->data[1] - p.data[1],
                  this->data[2] - p.data[2], this->data[3] - p.data[3]);
 }
 
-Point4  operator-(const Point4& lhs, const Vector4& rhs){
-  return Point4(lhs.data[0] - rhs.data[0], lhs.data[1] - rhs.data[1],
-                 lhs.data[2] - rhs.data[2], lhs.data[3] - rhs.data[3]);
+Point4  operator-(const Point4& lhs, const Vec4& rhs){
+  return Point4(lhs.data[0] - rhs[0], lhs.data[1] - rhs[1],
+                 lhs.data[2] - rhs[2], lhs.data[3] - rhs[3]);
 }
 
-Point4  operator+(const Point4& lhs, const Vector4& rhs){
-  return Point4(lhs.data[0] + rhs.data[0], lhs.data[1] + rhs.data[1],
-                 lhs.data[2] + rhs.data[2], lhs.data[3] + rhs.data[3]);
+Point4  operator+(const Point4& lhs, const Vec4& rhs){
+  return Point4(lhs.data[0] + rhs[0], lhs.data[1] + rhs[1],
+                 lhs.data[2] + rhs[2], lhs.data[3] + rhs[3]);
 }
 
 double Point4::len(const Point4& p) const {

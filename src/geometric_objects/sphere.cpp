@@ -1,4 +1,5 @@
 #include "../../include/sphere.h"
+#include <cmath>
 
 const double Sphere::k_epsilon = 0.001;
 
@@ -13,7 +14,7 @@ Color Sphere::get_color() const {
 }
 bool Sphere::hit(const Ray &ray, double &tmin, ShadeRec &shade_rec) const {
     double t;
-    Vector4 temp = ray.origin - center;
+    Vec4 temp = ray.origin - center;
     double a = ray.direction * ray.direction;
     double b = 2.0 * temp * ray.direction;
     double c = temp * temp - radius * radius;

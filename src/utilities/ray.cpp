@@ -1,6 +1,6 @@
 #include "../../include/ray.h"
 
-Ray::Ray(const Point4& origin, const Vector4& direction)
+Ray::Ray(const Point4& origin, const Vec4& direction)
     : origin(origin), direction(direction) {};
 
 

@@ -12,13 +12,15 @@ template<size_t Size> class Tuple{
         Tuple(double t);
         Tuple(double data[Size]);
         
-        bool operator==(const Tuple<Size>& tup) const;
+        bool   operator==(const Tuple<Size>& tup) const;
         double operator[](int i) const;
-
+        double get(int i) const;
         template<size_t size>
         friend std::ostream& operator<<(std::ostream& stream, const Tuple<size>& tup); //print Tuple 
                                                                                        
 };
+
+
 
 template <size_t Size>
 Tuple<Size>::Tuple(double t) {
@@ -61,4 +63,13 @@ double Tuple<Size>::operator[](int i) const {
     else
         throw std::out_of_range("Error: Attempted to acess out of range element\n");
 }
+
+
+template <size_t Size>
+double Tuple<Size>::get(int i) const {
+    return this[i];
+}
+
+
+
 

@@ -4,7 +4,7 @@
 
 class Jittered : public Sampler{
     public:
-        Jittered(int samples = 1, int sets = 40);
+        Jittered(int samples = 1, int sets = 1);
     private:
-        virtual void gen_samples();
+        void gen_samples() override;
 };

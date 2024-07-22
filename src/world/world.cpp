@@ -1,7 +1,7 @@
 #include "../../include/world.h"
 #include "../../include/hit_info.h"
-#include "../build/b_single_sphere.h"
-/* #include "../build/b_sinusoid.h" */
+/* #include "../build/b_single_sphere.h" */
+#include "../build/b_sinusoid.h"
 
 #include <iostream>
 

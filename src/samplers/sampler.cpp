@@ -17,8 +17,7 @@ Sampler::Sampler(int samples, int sets) :
     jump(0) 
 {
     this->samples.reserve(n_samples * n_sets);
-    shuffled_indices.reserve(n_samples * n_sets);
-
+    setup__indices();
 
 }
 void Sampler::setup__indices() {

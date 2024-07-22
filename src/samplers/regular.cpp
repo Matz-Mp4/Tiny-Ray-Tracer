@@ -7,8 +7,6 @@ Regular::Regular(int samples, int sets) :
 }
 
 
-Regular::~Regular()	{}
-
 void Regular::gen_samples(){
 	int n = static_cast<int>(sqrt(n_samples));
 	for (int j = 0; j < n_sets; j++)

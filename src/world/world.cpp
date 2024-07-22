@@ -3,6 +3,10 @@
 #include "../../include/hit_info.h"
 #include "../../include/sphere.h"
 #include "../../include/plane.h"
+#include "../../include/jittered.h"
+#include "../../include/regular.h"
+
+#include <iostream>
 
 
 const double kHugeValue	= 1.0E6;
@@ -32,13 +36,9 @@ World::~World() {
 }
 
 void World::build() {
-    int n_samples = 30;
+    /* int n_samples = 30; */
 
-    vp = vp.with_len(800)
-           .with_height(800)
-           .with_psize(1.0)
-           .with_gamma(1.0)
-           .with_samples(1);
+    vp.with_sampler(new Regular(25));
 
     bg = BLACK;
     tracer_ptr = new MultipleObjects(this);
@@ -54,7 +54,7 @@ void World::build() {
 
     /* add_object(plane); */
     add_object(sphere1);
-    /* add_object(sphere2);  */
+    add_object(sphere2); 
 
 }
 
@@ -62,30 +62,46 @@ void World::render_scene() {
     Color pixel_color;
     Ray ray;
     double x, y, zw = 100.0; //hard wired in (temporary)
-    
     init_window(vp.length, vp.height);
     ray.direction = Vec4(0.0,0.0,-1.0);
+    Tuple<2> sp;
     bool quit = false; 
+    int n_samples = vp.n_samples();
+    for (int r = 0; r < vp.height; r++) {			// up
+		for (int c = 0; c < vp.length; c++) {		// across 					
+          /*  pixel_color = BLACK;
+            //ANTI-ALISING
+            for (int j = 0; j < n_samples; c++) {
+                sp = vp.sampler_ptr->sample_unit_square();
+                x = vp.pixel_size * (c - 0.5 *  vp.length + sp[0]);
+                y = vp.pixel_size * (r - 0.5 *  vp.height + sp[1]);
 
-    for (int i = 0; i < vp.height; i++) {
-        for (int j = 0; j < vp.length; j++) {
-            x = vp.pixel_size * (j - 0.5 * (vp.length - 1.0));
-            y = vp.pixel_size * (i - 0.5 * (vp.height - 1.0));
+                ray.origin = Point4(x, y, zw);
+                pixel_color = tracer_ptr->trace_ray(ray);
+
+            }
+
+            pixel_color = pixel_color  * (1.0 / n_samples);
+            std::cout << "(" << pixel_color.r << ", " <<  pixel_color.g << ", " << pixel_color.b << ")";
+            
+            */
+            x = vp.pixel_size * (c - 0.5 * (vp.length - 1.0));
+            y = vp.pixel_size * (r - 0.5 * (vp.height - 1.0));
 
             ray.origin = Point4(x, y, zw);
             pixel_color = tracer_ptr->trace_ray(ray);
 
-            display_pixel(i, j, pixel_color);
+            display_pixel(r, c, pixel_color);
 
             if (window->should_close()){
-				quit = true;
-			}
+		    	quit = true;
+		    }
         }
-        window->show_window();
+            window->show_window();
     }
 
+    std::cout << "Ray Tracing Done!!";
     while (!quit && !window->should_close()) {
-		// wait
 	}
 }
 

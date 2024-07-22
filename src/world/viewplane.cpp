@@ -68,25 +68,21 @@ ViewPlane ViewPlane::with_gamma(const float gamma){
 }
 
 
-ViewPlane ViewPlane::with_sampler(Sampler* sp){
+void ViewPlane::with_sampler(Sampler* sp){
 
     std::cout << "sex";
     if(sampler_ptr) {
         delete sampler_ptr;
         sampler_ptr = nullptr;
     }
+    this->sampler_ptr = sp;
 
-    return ViewPlane(this->length, 
-                     this->height, 
-                     this->pixel_size, 
-                     this->gamma,
-                     sp);
 }
-
+/*
 ViewPlane ViewPlane::with_samples(const int samples){
     if(samples > 1) return with_sampler(new Jittered(samples));
     else return with_sampler(new Regular(samples));
-}
+}*/
 
 int ViewPlane::n_samples(){
     return sampler_ptr->get_num_samples();

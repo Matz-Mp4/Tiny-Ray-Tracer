@@ -15,8 +15,12 @@ Sampler::Sampler(int samples, int sets) :
     n_sets(sets),
     count(0),
     jump(0) 
-{}
+{
+    this->samples.reserve(n_samples * n_sets);
+    shuffled_indices.reserve(n_samples * n_sets);
 
+
+}
 void Sampler::setup__indices() {
     shuffled_indices.reserve(n_samples * n_sets);
     std::vector<int> indices;

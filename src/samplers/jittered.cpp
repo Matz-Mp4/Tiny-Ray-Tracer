@@ -7,8 +7,6 @@ Jittered::Jittered(int samples, int sets) :
     gen_samples();
 }
 
-Jittered::~Jittered()	{}
-
 void Jittered::gen_samples() {
     int n = static_cast<int>(sqrt(n_samples));
 

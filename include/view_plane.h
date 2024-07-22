@@ -19,7 +19,7 @@ class ViewPlane {
         ViewPlane with_height(const int height);
         ViewPlane with_psize(const float pixel_size);
         ViewPlane with_gamma(const float gamma);
-        ViewPlane with_sampler(Sampler* sp);
+        void with_sampler(Sampler* sp);
         ViewPlane with_samples(const int samples);
 
         int n_samples();

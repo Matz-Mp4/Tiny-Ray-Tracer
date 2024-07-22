@@ -13,8 +13,7 @@ Color Plane::get_color() const {
     return CYAN;
 }
 
-
-bool Plane::hit(const Ray& ray, double& tmin, ShadeRec& shade_rec) const {
+bool Plane::hit(const Ray& ray, double& tmin, HitInfo& shade_rec) const {
     double t = (point - ray.origin) * normal /  (ray.direction  * normal );
 
     if (t > k_epsilon) {

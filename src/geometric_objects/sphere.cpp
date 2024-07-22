@@ -12,7 +12,7 @@ Sphere::~Sphere() {};
 Color Sphere::get_color() const {
     return RED;
 }
-bool Sphere::hit(const Ray &ray, double &tmin, ShadeRec &shade_rec) const {
+bool Sphere::hit(const Ray &ray, double &tmin, HitInfo&shade_rec) const {
     double t;
     Vec4 temp = ray.origin - center;
     double a = ray.direction * ray.direction;

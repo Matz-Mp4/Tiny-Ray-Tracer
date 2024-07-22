@@ -1,7 +1,8 @@
+/*
 #include "../../include/matrix4.h"
-#include "../../include/vector4.h" 
+#include "../../include/vec4.h" 
 
-Matrix4::Matrix4(const Vector4& arg1, const Vector4& arg2, const Vector4& arg3, const Vector4& arg4) {
+Matrix4::Matrix4(const Vec4& arg1, const Vec4& arg2, const Vector4& arg3, const Vector4& arg4) {
     this->data[0] = arg1;
     this->data[1] = arg2;
     this->data[2] = arg3;
@@ -67,4 +68,4 @@ std::ostream& operator<<(std::ostream& stream, const Matrix4& mtx){
      stream << mtx.data[2]<< ",\n";
      stream << mtx.data[3]<< "]";
      return stream;
-}
+}*/

@@ -1,15 +1,16 @@
 #include "../../include/world.h"
 #include "../../include/multiple_objects.h"
-#include "../../include/shade_rec.h"
+#include "../../include/hit_info.h"
 #include "../../include/sphere.h"
 #include "../../include/plane.h"
 
-const double kHugeValue	= 1.0E10;
 
+const double kHugeValue	= 1.0E6;
 World::World()
     :bg(BLACK),
     tracer_ptr(nullptr),
     window(nullptr)
+
 {}
 
 World::~World() {		
@@ -30,27 +31,31 @@ World::~World() {
 	/* delete_objects(); */
 }
 
-
 void World::build() {
-    vp.length = 400;
-    vp.height = 400;
-    vp.pixel_size = 1.0;
-    vp.gamma = 1.0;
+    int n_samples = 30;
+
+    vp = vp.with_len(800)
+           .with_height(800)
+           .with_psize(1.0)
+           .with_gamma(1.0)
+           .with_samples(1);
 
     bg = BLACK;
     tracer_ptr = new MultipleObjects(this);
     Sphere* sphere1 = new Sphere(Point4(0.0, -25.0, 0.0), 80.0);
     sphere1->color = RED;
-    /* add_object(sphere); */
 
     Sphere* sphere2 = new Sphere(Point4(0.0,30.0,0.0), 60);
     sphere2->color = YELLOW;
-
+    
+    
     Plane* plane = new Plane(Point4(0.0, 0.0,0.0), Vec4(0.0, 1.0,1.0));
     plane->color = GREEN;
+
     /* add_object(plane); */
     add_object(sphere1);
-    add_object(sphere2);
+    /* add_object(sphere2);  */
+
 }
 
 void World::render_scene() {
@@ -107,10 +112,10 @@ void World::add_object(GeometricObject* object_ptr){
     objects.push_back(object_ptr);
 }
 
-ShadeRec World::hit_bare_bones_objects(const Ray& ray) {
-    ShadeRec shade_rec(*this);
+HitInfo World::hit_bare_bones_objects(const Ray& ray) {
+    HitInfo shade_rec(*this);
     double t;
-    double tmin = kHugeValue;
+    double tmin = 1.0E6;
     int num_objects = objects.size();
 
     for (int i = 0; i < num_objects; i++) {

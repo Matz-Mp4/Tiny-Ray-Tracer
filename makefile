@@ -14,7 +14,7 @@ rebuildables = $(objects) $(linkTarget)
 
 # Rule to actually perform the build
 $(linkTarget): $(objects)
-	g++ -g -o $(linkTarget) $(objects) $(LIBS) $(CFLAGS)
+	g++ -g -o bin/$(linkTarget) $(objects) $(LIBS) $(CFLAGS)
 	
 # Rule to create the .o (object) files
 %.o: %.cpp

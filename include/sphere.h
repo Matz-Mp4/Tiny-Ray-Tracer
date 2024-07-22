@@ -11,7 +11,7 @@ public:
     Sphere(const Point4& center, const double radius);
     ~Sphere();
 
-    bool hit(const Ray& ray, double& t, ShadeRec& shade_rec) const override;
+    bool hit(const Ray& ray, double& t, HitInfo& shade_rec) const override;
     Color get_color() const override;
 
 private: 

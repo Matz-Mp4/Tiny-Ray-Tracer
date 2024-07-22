@@ -1,7 +1,7 @@
-#include "../../include/shade_rec.h"
+#include "../../include/hit_info.h"
 #include "../../include/world.h"
 
-ShadeRec::ShadeRec(World& world)
+HitInfo::HitInfo(World& world)
     : hit_object(false),
       local_hit_point(),
       normal(),

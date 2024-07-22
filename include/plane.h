@@ -6,10 +6,10 @@
 class Plane: public GeometricObject {
 public: 
     Plane() = default;
-    ~Plane();
+   ~Plane();
     Plane(const Point4& point, const Vec4& normal);
 
-    bool hit(const Ray& ray, double& t, ShadeRec& shade_rec) const override;
+    bool hit(const Ray& ray, double& t, HitInfo& shade_rec) const override;
     Color get_color() const override;    
     
 private:

@@ -1,10 +1,7 @@
 #include "../../include/world.h"
-#include "../../include/multiple_objects.h"
 #include "../../include/hit_info.h"
-#include "../../include/sphere.h"
-#include "../../include/plane.h"
-#include "../../include/jittered.h"
-#include "../../include/regular.h"
+#include "../build/b_single_sphere.h"
+/* #include "../build/b_sinusoid.h" */
 
 #include <iostream>
 
@@ -35,29 +32,6 @@ World::~World() {
 	/* delete_objects(); */
 }
 
-void World::build() {
-    /* int n_samples = 30; */
-
-    vp.with_sampler(new Regular(25));
-
-    bg = BLACK;
-    tracer_ptr = new MultipleObjects(this);
-    Sphere* sphere1 = new Sphere(Point4(0.0, -25.0, 0.0), 80.0);
-    sphere1->color = RED;
-
-    Sphere* sphere2 = new Sphere(Point4(0.0,30.0,0.0), 60);
-    sphere2->color = YELLOW;
-    
-    
-    Plane* plane = new Plane(Point4(0.0, 0.0,0.0), Vec4(0.0, 1.0,1.0));
-    plane->color = GREEN;
-
-    /* add_object(plane); */
-    add_object(sphere1);
-    add_object(sphere2); 
-
-}
-
 void World::render_scene() {
     Color pixel_color;
     Ray ray;
@@ -66,41 +40,31 @@ void World::render_scene() {
     ray.direction = Vec4(0.0,0.0,-1.0);
     Tuple<2> sp;
     bool quit = false; 
+
     int n_samples = vp.n_samples();
+
     for (int r = 0; r < vp.height; r++) {			// up
 		for (int c = 0; c < vp.length; c++) {		// across 					
-          /*  pixel_color = BLACK;
-            //ANTI-ALISING
-            for (int j = 0; j < n_samples; c++) {
+           //Anti-Alisign
+           pixel_color = BLACK;
+            for (int j = 0; j < n_samples; j++) {
                 sp = vp.sampler_ptr->sample_unit_square();
                 x = vp.pixel_size * (c - 0.5 *  vp.length + sp[0]);
                 y = vp.pixel_size * (r - 0.5 *  vp.height + sp[1]);
-
                 ray.origin = Point4(x, y, zw);
-                pixel_color = tracer_ptr->trace_ray(ray);
-
+                pixel_color = pixel_color +  tracer_ptr->trace_ray(ray);
             }
 
             pixel_color = pixel_color  * (1.0 / n_samples);
-            std::cout << "(" << pixel_color.r << ", " <<  pixel_color.g << ", " << pixel_color.b << ")";
-            
-            */
-            x = vp.pixel_size * (c - 0.5 * (vp.length - 1.0));
-            y = vp.pixel_size * (r - 0.5 * (vp.height - 1.0));
-
-            ray.origin = Point4(x, y, zw);
-            pixel_color = tracer_ptr->trace_ray(ray);
-
             display_pixel(r, c, pixel_color);
 
             if (window->should_close()){
 		    	quit = true;
 		    }
         }
-            window->show_window();
+        window->show_window();
     }
 
-    std::cout << "Ray Tracing Done!!";
     while (!quit && !window->should_close()) {
 	}
 }

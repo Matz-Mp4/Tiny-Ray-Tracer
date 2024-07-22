@@ -70,7 +70,6 @@ ViewPlane ViewPlane::with_gamma(const float gamma){
 
 void ViewPlane::with_sampler(Sampler* sp){
 
-    std::cout << "sex";
     if(sampler_ptr) {
         delete sampler_ptr;
         sampler_ptr = nullptr;

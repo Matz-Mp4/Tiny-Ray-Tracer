@@ -1,6 +1,7 @@
 #include "../../include/jittered.h"
 #include "../../include/math.h"
 #include <cmath>
+#include <iostream>
 
 Jittered::Jittered(int samples, int sets) :
     Sampler(samples, sets) {
@@ -13,7 +14,7 @@ void Jittered::gen_samples() {
     for(int p = 0; p < n_sets; p++) 
         for(int j = 0; j < n_sets; j++) 
             for(int k = 0; k < n_sets; k++) {
-                double data [] = {k + rand_float() / n,  j + rand_float() / n};
+                double data [] = {(k + rand_float()) / n,  (j + rand_float()) / n};
                 Tuple<2> sp(data);
                 samples.push_back(sp);
             }

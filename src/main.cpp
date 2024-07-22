@@ -1,10 +1,11 @@
+#include "../include/math.h"
 #include "../include/world.h"
+#include <iostream>
 
-int main(){
+int main() {
+  World w;
+  w.build();
+  w.render_scene();
 
-    World w;
-    w.build();
-    w.render_scene();
-
-    return 0;
+  return 0;
 }

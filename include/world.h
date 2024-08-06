@@ -2,6 +2,7 @@
 
 #include <vector>
 
+#include "camera.h"
 #include "view_plane.h" 
 #include "color.h" 
 #include "sphere.h" 
@@ -16,6 +17,7 @@ public:
     Tracer* tracer_ptr;
     std::vector<GeometricObject*> objects;
     Window* window;
+    Camera* camera_ptr;
 
     World();
    ~World();

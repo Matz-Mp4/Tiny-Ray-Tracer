@@ -60,6 +60,14 @@ Vec4 Vec4::operator/(double t) const {
                  this->data[3] / t);
 }
 
+void Vec4::normalize() {
+    double t = this->length();
+    this->data[0] = this->data[0] / t;
+    this->data[1] = this->data[1] / t;
+    this->data[2] = this->data[2] / t;
+    this->data[3] = this->data[3] / t;
+}
+
 double Vec4::length() const {
   double x2 = this->data[0] * this->data[0];
   double y2 = this->data[1] * this->data[1];

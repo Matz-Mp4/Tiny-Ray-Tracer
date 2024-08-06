@@ -8,7 +8,7 @@
 
 void World::build() {
     bg = BLACK;
-    vp.with_sampler(new Regular(100, 1));
+    vp.with_sampler(new Regular(1, 1));
     vp.pixel_size = 0.01;
     vp.length = 600;
     vp.height = 600;

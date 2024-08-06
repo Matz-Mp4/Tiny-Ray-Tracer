@@ -1,7 +1,8 @@
 #include "../../include/world.h"
 #include "../../include/hit_info.h"
 /* #include "../build/b_single_sphere.h" */
-#include "../build/b_sinusoid.h"
+/* #include "../build/b_sinusoid.h" */
+#include "../build/b_camera.h"
 
 #include <iostream>
 
@@ -10,7 +11,8 @@ const double kHugeValue	= 1.0E6;
 World::World()
     :bg(BLACK),
     tracer_ptr(nullptr),
-    window(nullptr)
+    window(nullptr),
+    camera_ptr(nullptr)
 
 {}
 
@@ -25,6 +27,11 @@ World::~World() {
 		delete window;
 		window = nullptr;
 	}
+
+    if(camera_ptr) {
+        delete camera_ptr;
+        camera_ptr = nullptr;
+    }
 
     for (int i = 0 ; i < objects.size(); i++) {
         delete objects[i];

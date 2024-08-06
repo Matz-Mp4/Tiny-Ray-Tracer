@@ -2,7 +2,6 @@
 #include "tuple.h"
 
 class Vec4: public Tuple<4> {
-
     public:
         Vec4() = default;
        ~Vec4() = default;
@@ -19,6 +18,7 @@ class Vec4: public Tuple<4> {
         Vec4    operator/(double t) const;
         Vec4    operator|(const Vec4&   v) const;
         double  length() const;
+        void    normalize();
 
 };
 
